@@ -1,7 +1,8 @@
-// Copyright 2021 Alexandra Tyurmina
+// Copyright 2021 Tyurmina Alexandra
 
 #include <gtest/gtest.h>
 #include <cmath>
+
 #include "include/complex_number.h"
 
 TEST(Tyrmina_Alexandra_ComplexNumberTest, hypotenuse_and_legs) {
@@ -15,9 +16,9 @@ TEST(Tyrmina_Alexandra_ComplexNumberTest, hypotenuse_and_legs) {
   double res_legs2 = re2 + im2;
   double res2 = hypot(re2, im2);
 
-  EXPECT_LT(res1, res_legs1);
-  EXPECT_LT(res2, res_legs2);
-  EXPECT_LT(res2+res1, res_legs2+res_legs1);
+  ASSERT_LT(res1, res_legs1);
+  ASSERT_LT(res2, res_legs2);
+  ASSERT_LT(res2+res1, res_legs2+res_legs1);
 }
 
 TEST(Tyrmina_Alexandra_ComplexNumberTest, equal) {

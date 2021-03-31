@@ -1,11 +1,12 @@
 // Copyright 2021 Tyurmina Alexandra
 
 #include <gtest/gtest.h>
+
 #include <cmath>
 
 #include "include/complex_number.h"
 
-TEST(Tyrmina_Alexandra_ComplexNumberTest, hypotenuse_and_legs) {
+TEST(Tyurmina_Alexandra_ComplexNumberTest, hypotenuse_and_legs) {
   double re1 = 3.0;
   double im1 = 4.0;
   double re2 = 5.0;
@@ -21,7 +22,7 @@ TEST(Tyrmina_Alexandra_ComplexNumberTest, hypotenuse_and_legs) {
   ASSERT_LT(res2+res1, res_legs2+res_legs1);
 }
 
-TEST(Tyrmina_Alexandra_ComplexNumberTest, equal) {
+TEST(Tyurmina_Alexandra_ComplexNumberTest, equal) {
   ComplexNumber a(23.1, 15.6);
 
   double c = 15.6;
@@ -30,11 +31,10 @@ TEST(Tyrmina_Alexandra_ComplexNumberTest, equal) {
   double res1 = a.getRe() * c;
   double res2 = a.getIm() * d;
 
-
   ASSERT_EQ(res1, res2);
 }
 
-TEST(Tyrmina_Alexandra_ComplexNumberTest, not_equal) {
+TEST(Tyurmina_Alexandra_ComplexNumberTest, not_equal) {
   ComplexNumber a(3.0, 5.0);
   ComplexNumber b(1.0, 4.0);
   ComplexNumber c(1.0, 1.0);

@@ -6,11 +6,9 @@
 
 CalculatePrice::CalculatePrice(int book1, int book2,
   int book3, int book4, int book5) {
-  if ((book1 < 0) || (book2 < 0) ||
-    (book3 < 0) || (book4 < 0) || (book5 < 0))
+  if ((book1 < 0) || (book2 < 0) || (book3 < 0) || (book4 < 0) || (book5 < 0))
     throw std::string("Don't negative numbers");
-  basket_ = { {book1, book2, book3,
-    book4, book5} };
+  basket_ = { {book1, book2, book3, book4, book5} };
 }
 
 double CalculatePrice::DiscountCalculate(const int book) {

@@ -5,12 +5,10 @@
 
 TEST(CalculatePrice,
   Do_Throw_When_Create_Basket_With_Negative_Value) {
-
   ASSERT_ANY_THROW(CalculatePrice(1, -2, 3, 4, 5));
 }
 
 TEST(CalculatePrice, Can_Create_Basket_With_Zero_Value) {
-
   ASSERT_NO_THROW(CalculatePrice(0, 0, 0, 0, 0));
 }
 

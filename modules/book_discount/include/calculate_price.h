@@ -6,11 +6,11 @@
 #include <array>
 
 class CalculatePrice {
-private:
+ private:
   std::array<int, 5> basket_;
   double DiscountCalculate(const int book);
 
-public:
+ public:
   CalculatePrice(int book1, int book2,
     int book3, int book4, int book5);
 

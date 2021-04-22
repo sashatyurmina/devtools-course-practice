@@ -22,11 +22,11 @@ TEST(CalculatePrice,
 }
 
 TEST(CalculatePrice,
-	Calculate_Price_Same_Parts_Of_Books_Without_Discount_Other) {
-	CalculatePrice b(0, 0, 4, 0, 0);
-	double price = 56.0;
+  Calculate_Price_Same_Parts_Of_Books_Without_Discount_Other) {
+  CalculatePrice b(0, 0, 4, 0, 0);
+  double price = 32.0;
 
-	ASSERT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice,

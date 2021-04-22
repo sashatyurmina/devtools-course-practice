@@ -1,6 +1,7 @@
 // Copyright 2021 Tyurmina Alexandra
 
 #include "include/calculate_price.h"
+
 #include <stdio.h>
 #include <string>
 

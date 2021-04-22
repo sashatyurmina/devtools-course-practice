@@ -1,6 +1,7 @@
 // Copyright 2021 Tyurmina Alexandra
 
 #include <gtest/gtest.h>
+
 #include "include/calculate_price.h"
 
 TEST(CalculatePrice,
@@ -17,7 +18,15 @@ TEST(CalculatePrice,
   CalculatePrice b(7, 0, 0, 0, 0);
   double price = 56.0;
 
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
+}
+
+TEST(CalculatePrice,
+	Calculate_Price_Same_Parts_Of_Books_Without_Discount_Other) {
+	CalculatePrice b(0, 0, 4, 0, 0);
+	double price = 56.0;
+
+	ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice,
@@ -25,64 +34,56 @@ TEST(CalculatePrice,
   CalculatePrice b(7, 1, 0, 0, 0);
   double price = 63.2;
 
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice, Calculate_Price_With_Maximum_Discount) {
   CalculatePrice b(5, 4, 3, 2, 1);
   double price = 100.4;
 
-  EXPECT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice,
-  Correct_Calculate_Price_Of_Shopping_Basket_With_Zero_Value) {
-  CalculatePrice b(0, 0, 0, 0, 0);
-  double price = 0.0;
-
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice, Correct_Calculate_Irrespective_Of_Parts_Of_Book) {
   CalculatePrice b(0, 0, 2, 1, 0);
   double price = 23.2;
 
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice, No_Discount_On_One_Book) {
   CalculatePrice b(1, 0, 0, 0, 0);
   double price = 8.0;
 
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice, Correct_Discount_On_Two_Different_Books) {
   CalculatePrice b(1, 1, 0, 0, 0);
   double price = 15.2;
 
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice, Correct_Discount_On_Three_Different_Books) {
   CalculatePrice b(1, 1, 1, 0, 0);
   double price = 21.6;
 
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice, Correct_Discount_On_Four_Different_Books) {
   CalculatePrice b(1, 1, 1, 1, 0);
   double price = 25.6;
 
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 TEST(CalculatePrice, Correct_Discount_On_All_Books) {
   CalculatePrice b(1, 1, 1, 1, 1);
   double price = 30.0;
 
-  EXPECT_EQ(price, b.TotalSum());
+  ASSERT_EQ(price, b.TotalSum());
 }
 
 int main(int argc, char** argv) {

@@ -14,7 +14,8 @@ TEST(CalculatePrice, Can_Create_Basket_With_Zero_Value) {
   ASSERT_NO_THROW(CalculatePrice(0, 0, 0, 0, 0));
 }
 
-typedef testing::TestWithParam<std::tuple<int, int, int, int, int, double>> Param;
+typedef testing::TestWithParam<std::tuple<int, int,
+  int, int, int, double>> Param;
 TEST_P(Param, parametr) {
   int b1 = std::get<0>(GetParam());
   int b2 = std::get<1>(GetParam());

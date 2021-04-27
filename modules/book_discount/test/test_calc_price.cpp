@@ -2,6 +2,7 @@
 
 #include <gtest/gtest.h>
 
+#include <tuple>
 #include "include/calculate_price.h"
 
 TEST(CalculatePrice,
@@ -13,78 +14,32 @@ TEST(CalculatePrice, Can_Create_Basket_With_Zero_Value) {
   ASSERT_NO_THROW(CalculatePrice(0, 0, 0, 0, 0));
 }
 
-TEST(CalculatePrice,
-  Calculate_Price_Same_Parts_Of_Books_Without_Discount) {
-  CalculatePrice b(7, 0, 0, 0, 0);
-  double price = 56.0;
+typedef testing::TestWithParam<std::tuple<int, int, int, int, int, double>> Param;
+TEST_P(Param, parametr) {
+  int b1 = std::get<0>(GetParam());
+  int b2 = std::get<1>(GetParam());
+  int b3 = std::get<2>(GetParam());
+  int b4 = std::get<3>(GetParam());
+  int b5 = std::get<4>(GetParam());
+  double price = std::get<5>(GetParam());
 
-  ASSERT_EQ(price, b.TotalSum());
+  CalculatePrice res(b1, b2, b3, b4, b5);
+
+  ASSERT_EQ(price, res.TotalSum());
 }
 
-TEST(CalculatePrice,
-  Calculate_Price_Same_Parts_Of_Books_Without_Discount_Other) {
-  CalculatePrice b(0, 0, 4, 0, 0);
-  double price = 32.0;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice,
-  Calculate_Price_With_Discount_Only_For_Different_Books) {
-  CalculatePrice b(7, 1, 0, 0, 0);
-  double price = 63.2;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice, Calculate_Price_With_Maximum_Discount) {
-  CalculatePrice b(5, 4, 3, 2, 1);
-  double price = 100.4;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice, Correct_Calculate_Irrespective_Of_Parts_Of_Book) {
-  CalculatePrice b(0, 0, 2, 1, 0);
-  double price = 23.2;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice, No_Discount_On_One_Book) {
-  CalculatePrice b(1, 0, 0, 0, 0);
-  double price = 8.0;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice, Correct_Discount_On_Two_Different_Books) {
-  CalculatePrice b(1, 1, 0, 0, 0);
-  double price = 15.2;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice, Correct_Discount_On_Three_Different_Books) {
-  CalculatePrice b(1, 1, 1, 0, 0);
-  double price = 21.6;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice, Correct_Discount_On_Four_Different_Books) {
-  CalculatePrice b(1, 1, 1, 1, 0);
-  double price = 25.6;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
-
-TEST(CalculatePrice, Correct_Discount_On_All_Books) {
-  CalculatePrice b(1, 1, 1, 1, 1);
-  double price = 30.0;
-
-  ASSERT_EQ(price, b.TotalSum());
-}
+INSTANTIATE_TEST_CASE_P(/**/, Param, testing::Values(
+  std::make_tuple(7, 0, 0, 0, 0, 56.0),
+  std::make_tuple(0, 0, 4, 0, 0, 32.0),
+  std::make_tuple(7, 1, 0, 0, 0, 63.2),
+  std::make_tuple(5, 4, 3, 2, 1, 100.4),
+  std::make_tuple(0, 0, 2, 1, 0, 23.2),
+  std::make_tuple(1, 0, 0, 0, 0, 8.0),
+  std::make_tuple(1, 1, 0, 0, 0, 15.2),
+  std::make_tuple(1, 1, 1, 0, 0, 21.6),
+  std::make_tuple(1, 1, 1, 1, 0, 25.6),
+  std::make_tuple(1, 1, 1, 1, 1, 30.0)
+));
 
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);

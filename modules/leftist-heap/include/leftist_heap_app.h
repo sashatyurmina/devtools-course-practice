@@ -13,6 +13,5 @@ class HeapSort {
   std::string message_;
   void Info(const char* appname, const char* message = "");
   bool CheckArguments(int argc, const char** argv);
-
 };
 #endif  // MODULES_LEFTIST_HEAP_INCLUDE_LEFTIST_HEAP_APP_H_

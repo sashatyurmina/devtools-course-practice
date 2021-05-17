@@ -11,7 +11,7 @@ using std::vector;
 using std::string;
 
 class HeapSortTest : public ::testing::Test {
-protected:
+ protected:
   void Act(vector<string> args_) {
     vector<const char*> options;
 
@@ -30,7 +30,7 @@ protected:
     EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
   }
 
-private:
+ private:
   HeapSort app_;
   string output_;
 };

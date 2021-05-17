@@ -7,11 +7,11 @@
 #include "include/leftist_heap.h"
 
 class HeapSort {
+
 public:
-
 	std::string operator()(int argc, const char** argv);
-private:
 
+private:
   std::string message_;
   void Info(const char* appname, const char* message = "");
   bool CheckArguments(int argc, const char** argv);
